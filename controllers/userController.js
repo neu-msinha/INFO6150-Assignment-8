@@ -6,6 +6,15 @@ exports.createUser = async (req, res) => {
   try {
     const { fullName, email, password } = req.body;
 
+    // Check if user already exists with the same email
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      return res.status(400).json({
+        status: 'error',
+        message: 'Email already exists'
+      });
+    }
+
     // Password strength validation
     const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*]).{8,}$/;
     if (!passwordRegex.test(password)) {
@@ -34,18 +43,13 @@ exports.createUser = async (req, res) => {
       }
     });
   } catch (error) {
-    if (error.code === 11000) {
-      return res.status(400).json({
-        status: 'error',
-        message: 'Email already exists'
-      });
-    }
     res.status(500).json({
       status: 'error',
       message: error.message
     });
   }
 };
+
 
 exports.updateUser = async (req, res) => {
   try {

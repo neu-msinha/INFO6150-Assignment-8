@@ -1,0 +1,162 @@
+{
+    "info": {
+      "_postman_id": "a2f20723-7e32-4d56-b4a0-82b40c80c6e5",
+      "name": "User Controller API",
+      "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+    },
+    "item": [
+      {
+        "name": "Create User",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": ""
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"fullName\": \"Mayukh Sinha\",\n    \"email\": \"mayukh.sinha@example.com\",\n    \"password\": \"Password123!\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/user/create",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "user",
+              "create"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Update User",
+        "request": {
+          "method": "PUT",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": ""
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"email\": \"mayukh.sinha@example.com\",\n    \"fullName\": \"Mayukh Sinha Updated\",\n    \"password\": \"NewPassword123!\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/user/edit",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "user",
+              "edit"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Delete User",
+        "request": {
+          "method": "DELETE",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": ""
+            }
+          ],
+          "body": {
+            "mode": "raw",
+            "raw": "{\n    \"email\": \"mayukh.sinha@example.com\"\n}"
+          },
+          "url": {
+            "raw": "http://localhost:3000/user/delete",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "user",
+              "delete"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Get All Users",
+        "request": {
+          "method": "GET",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json",
+              "description": ""
+            }
+          ],
+          "url": {
+            "raw": "http://localhost:3000/user/getAll",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "user",
+              "getAll"
+            ]
+          }
+        },
+        "response": []
+      },
+      {
+        "name": "Upload Image",
+        "request": {
+          "method": "POST",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "multipart/form-data",
+              "description": ""
+            }
+          ],
+          "body": {
+            "mode": "formdata",
+            "formdata": [
+              {
+                "key": "email",
+                "value": "mayukh.sinha@example.com",
+                "type": "text"
+              },
+              {
+                "key": "image",
+                "type": "file",
+                "src": "path_to_image.jpg"
+              }
+            ]
+          },
+          "url": {
+            "raw": "http://localhost:3000/user/uploadImage",
+            "host": [
+              "localhost"
+            ],
+            "port": "3000",
+            "path": [
+              "user",
+              "uploadImage"
+            ]
+          }
+        },
+        "response": []
+      }
+    ]
+  }
+  
